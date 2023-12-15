@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Adding Product
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid bg-white mt-5 border-top border-bottom shadow">
+        <div class="container">
+
+            {% if form.errors %}
+                {% for field, errors in form.errors.items() %}
+                    {% for error in errors %}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <form method="post">
+                {{ form.hidden_tag() }}
+
+                {{ form.username.label }}
+                {{ form.username(class="form-control") }}
+
+                {{ form.password.label }}
+                {{ form.password(class="form-control") }}
+
+                {{ form.repeat_password.label }}
+                {{ form.repeat_password(class="form-control") }}
+
+                {{ form.gender.label }}
+                {{ form.gender }}
+
+                {{ form.country(class="form-select") }}
+
+                {{ form.birthday.label }}
+                {{ form.birthday(class="form-control") }}
+
+                {{ form.submit(class="btn btn-warning") }}
+
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container bg-white rounded shadow">
+    <p> You are using {{ lang }}, running on {{ lib }}. </p>
+    {% for product in products %}
+        <p> {{ product }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
